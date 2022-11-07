@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SplashNavigation from '~/app/features/splash/config/Navigation';
 import HomeNavigation from '~/app/features/home/config/Navigation';
 import { SplashContext } from './SplashContext';
-import BabNavigation from '~/app/features/home/Bab/config/Navigation';
+import BabNavigation from '~/app/features/bab/config/Navigation';
 
 const Root = createStackNavigator();
 

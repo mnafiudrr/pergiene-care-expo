@@ -7,7 +7,7 @@ import ScannerScreens from '../../scanner/config/Screens';
 import { bgcolor } from '~/app/core/utils/colors';
 import { data_static } from '~/app/service/data-static';
 import AppBox from '~/app/core/component/AppBox';
-import BabScreen from '../Bab/config/Screens';
+import BabScreen from '~/app/features/bab/config/Screens';
 
 
 export default function Home({ navigation }: { navigation: CompositeNavigationProp<any, any> }) {
