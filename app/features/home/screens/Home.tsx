@@ -27,7 +27,8 @@ const spacing = overCols / numCols;
         showsVerticalScrollIndicator={false}> */}
       <View style={styles.container}>
         <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
-          <Text>Menu Utama</Text>
+          <Text style={{ fontFamily: 'Schoolbell', fontSize: wp(15) }}>Menu Utama</Text>
+          <Text style={{ fontFamily: 'Schoolbell', fontSize: wp(15) }}>Aplikasi</Text>
         </View>
         <View style={{ flex: 3 }}>
           <View 

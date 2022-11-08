@@ -16,7 +16,7 @@ export default function AppBox({logo, title, imageSource, onPress}: boxProps) {
       <View style={styles.box}>
       { imageSource ? <Image source={imageSource??{}} style={styles.logo} /> : null }
       </View>
-      <Text style={styles.title}>{ title }</Text>
+      <Text style={[styles.title, {fontFamily: 'ArchitectsDaughter'}]}>{ title }</Text>
     </TouchableOpacity>
   )
 }
@@ -24,7 +24,8 @@ export default function AppBox({logo, title, imageSource, onPress}: boxProps) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginVertical: 20
+    marginVertical: 20,
+    width: wp(48)
   },
   logo: {
     width: 80,

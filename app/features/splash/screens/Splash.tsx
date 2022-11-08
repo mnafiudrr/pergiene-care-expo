@@ -1,11 +1,11 @@
 import { CompositeNavigationProp } from '@react-navigation/native';
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import {
   StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image,
 } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import AppView from '~/app/core/component/AppView';
+import * as Font from 'expo-font';
 import { SplashContext } from '~/app/core/config/SplashContext';
 import { bgcolor } from '~/app/core/utils/colors';
 
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: wp(10),
-    fontWeight: 'bold',
     marginBottom: heightPercentageToDP(5)
   },
   logo: {
@@ -49,24 +48,48 @@ const styles = StyleSheet.create({
     // shadowOpacity: 1,
     // shadowRadius: 20,  
     elevation: 50
-}
+  }
 });
 
 export default function Splash({ navigation }: { navigation: CompositeNavigationProp<any, any> }) {
 
   const { setSplashLoading } = useContext(SplashContext);
 
+  const [fontsLoaded, setfontsLoaded] = useState(false);
+
+  const _loadFontAsync = async () => {
+    await Font.loadAsync({
+        'ArchitectsDaughter': require('~/assets/fonts/ArchitectsDaughter.ttf'),
+        'Schoolbell': require('~/assets/fonts/Schoolbell.ttf'),
+        'Staatliches-Regular': require('~/assets/fonts/Staatliches-Regular.ttf'),
+    });
+    setfontsLoaded(true);
+  }
+
   useEffect(() => {
+    _loadFontAsync();
+  },[]);
+
+  useEffect(() => {
+    console.log(fontsLoaded);
+    
     setTimeout(() => {
       setSplashLoading(false);
     }, 3000);
   }, []);
 
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, backgroundColor: bgcolor.yellow }}>
+      </View>
+    )
+  }
+
 
   return (
     <View style={{ flex: 1, backgroundColor: bgcolor.yellow }}>
       <View style={styles.container}>
-        <Text style={styles.title}>PERGIENE CARE</Text>
+        <Text style={[styles.title, { fontFamily: 'Staatliches-Regular' }]}>PERGIENE CARE</Text>
         <View style={styles.withShadow}>
           <Image style={styles.logo} source={require('~/assets/icon.png')} />
         </View>
