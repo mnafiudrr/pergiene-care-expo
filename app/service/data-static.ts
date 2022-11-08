@@ -17,8 +17,8 @@ export const data_static = [
         image: null,
         type: 'desc',
         numeringFormat: 'alphabet',
-        value: `a. Keputihan fisiologis berbentuk cair seperti air atau terkadang agak berlendir, pada umumnya cairan yang keluar dalam jumlah sedikit, berwarna jernih, tidak berbau dan tidak menyebabkan gatal.\n
-        b. Keputihan patologis bertekstur kental dan terkandang menggumpal, berwarna kuning tua, coklat, hijau atau abu-abu, cairan yang keluar dalam jumlah banyak, timbul disertai dengan rasa gatal di dalam vagina dan disekitar bibir vagina bagian luar, dan sering menimbulkan bau busuk atau amis, serta menciptakan rasa nyeri ketika berkemih atau bersenggama.`,
+        value: `a. Keputihan fisiologis berbentuk cair seperti air atau terkadang agak berlendir, pada umumnya cairan yang keluar dalam jumlah sedikit, berwarna jernih, tidak berbau dan tidak menyebabkan gatal.
+        \nb. Keputihan patologis bertekstur kental dan terkandang menggumpal, berwarna kuning tua, coklat, hijau atau abu-abu, cairan yang keluar dalam jumlah banyak, timbul disertai dengan rasa gatal di dalam vagina dan disekitar bibir vagina bagian luar, dan sering menimbulkan bau busuk atau amis, serta menciptakan rasa nyeri ketika berkemih atau bersenggama.`,
         data: []
       },
       {
@@ -26,11 +26,20 @@ export const data_static = [
         image: null,
         type: 'desc',
         numeringFormat: 'number',
+        value: `Terdapat beragam faktor yang menjadi penyebab adanya keputihan yakni diantaranya
+        \n1. Infeksi mikroorganisme seperti jamur, parasit ataupun virus,
+        \n2. Adanya gangguan keseimbangan hormone
+        \n3. Stress
+        \n4. Kelelahan yang berarti
+        \n5. Peradangan pada alat kelamin
+        \n6. Terdapat suatu benda asing pada vagina
+        \n7. Adanya suatu penyakit dalam organ reproduksi contohnya kanker leher rahim`,
         data: [
           {
             id: null,
             title: null,
-            value: 'Terdapat beragam faktor yang menjadi penyebab adanya keputihan yakni diantaranya'
+            value: 'Terdapat beragam faktor yang menjadi penyebab adanya keputihan yakni diantaranya',
+            data: [],
           },
           {
             id: '1',
@@ -65,7 +74,7 @@ export const data_static = [
           {
             id: '7',
             title: null,
-            value: 'adanya suatu penyakit dalam organ reproduksi contohnya kanker leher rahim'
+            value: 'adanya suatu penyakit dalam organ reproduksi contohnya kanker leher rahim',
           },
         ]
       },
@@ -105,7 +114,38 @@ export const data_static = [
         type: 'page',
         data: [
           {
-            value: ``
+            title: `Penggunaan celana dalam`,
+            data: [
+              'Memakai celana dalam berbahan katun 100% yang menyerap keringat dengan baik.',
+              'Hindari penggunaan celana dalam yang berbahan nylon dan polyester yang menyebabkan rasa panas pada area kewanitaan sehingga daerah kewanitaan menjadi lembab. Daerah kewanitaan yang lembab akan memicu tumbuhnya bakteri dan jamur.',
+              'Hindari penggunaan celana yang ketat',
+              `mengganti celana dalam minimal dua kali dalam sehari.`
+            ]
+          },
+          {
+            title: `Penggunaan cairan pembersih`,
+            data: [
+              `Hindari penggunaan sabun pembersih vagina yang menyebabkan perubahan keasaman dan keseimbangan bakteri vagina.`,
+              `Membersihkan vagina dapat menggunakan sabun bayi yang memiliki pH netral atau normal.`,
+              `Hindari penggunaan pembersih vagina dalam bentuk spray, dikarenakan bisa menyebabkan infeksi dan perubahan keseimbangan pH 20`
+            ]
+          },
+          {
+            title: `Kebersihan genitalia saat menstruasi`,
+            data: [
+              `Saat menstruasi berlangsung penggantian pembalut tidak boleh lebih dari 6 jam.`,
+              `Penggantian pembalut sebaiknya 3-4 jam sekali.`,
+              `Menggunakan pembalut yang berbahan lembut dan mampu menyerap dengan baik. Memilih pembalut yang tidak mengandung parfum atau gel yang bisa mengakibatkan pengguna alergi. Pembalut yang mengandung parfum bisa menyebabkan iritasi daerah kemaluan.`,
+            ]
+          },
+          {
+            title: `Cara membersihkan rambut kemaluan ( Bulu Pubis)`,
+            data: [
+              `Cara membersihkan rambut kemaluan sebaiknya dilakukan dengan cara mencukurnya, bukan mencabutnya. Mencabut bulu kemaluan, selain bisa menyebabkan rasa nyeri, juga bisa membuat akar rambut terbuka, sehingga mikroorganisme berbahaya rentan masuk dan menyebabkan infeksi (folikulitis).`,
+              `Mencukur rambut kemaluan berfungsi untuk menghindari pertumbuhan jamur dan bakteri yang menempel pada rambut kemaluan.`,
+              `Gunakan alat khusus untuk mencukur rambut kemaluan jangan menggunakan alat yang sama untuk hal lainnya.`,
+              `Disarankan untuk tidak mencukur habis bulu pubis karena dapat menghilangkan fungsi dari bulu pubis tersebut.`
+            ]
           }
         ],
       },

@@ -5,6 +5,7 @@ import SplashNavigation from '~/app/features/splash/config/Navigation';
 import HomeNavigation from '~/app/features/home/config/Navigation';
 import { SplashContext } from './SplashContext';
 import BabNavigation from '~/app/features/bab/config/Navigation';
+import MateriNavigation from '~/app/features/materi/config/Navigation';
 
 const Root = createStackNavigator();
 
@@ -12,6 +13,7 @@ function listScreen() {
   return [
     ...HomeNavigation.getNavigation(Root),
     ...BabNavigation.getNavigation(Root),
+    ...MateriNavigation.getNavigation(Root),
   ];
 }
 

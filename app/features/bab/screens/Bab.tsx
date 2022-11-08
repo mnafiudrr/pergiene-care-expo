@@ -1,4 +1,4 @@
-import { CompositeNavigationProp } from '@react-navigation/native';
+import { CompositeNavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
   StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image, Button,
@@ -8,6 +8,7 @@ import AppBox from '~/app/core/component/AppBox';
 import AppView from '~/app/core/component/AppView';
 import { bgcolor } from '~/app/core/utils/colors';
 import { data_static } from '~/app/service/data-static';
+import MateriScreen from '../../materi/config/Screens';
 
 const heightScreen = Dimensions.get('screen').height;
 
@@ -25,6 +26,7 @@ type BabProps = {
 
 export default function Bab({ route }: BabProps) {
 
+  const navigation = useNavigation<CompositeNavigationProp<any, any>>();
   const { id } = route.params;
   const data = data_static[id];
 
@@ -44,6 +46,7 @@ export default function Bab({ route }: BabProps) {
                 <AppBox
                   key={idx}
                   title={item.title}
+                  onPress={() => MateriScreen.MATERI.navigate(navigation, {id, idx})}
                 />
               )
             })
