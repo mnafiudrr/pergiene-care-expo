@@ -1,7 +1,7 @@
 import { CompositeNavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image, Button,
+  StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image, Button, ScrollView,
 } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import AppBox from '~/app/core/component/AppBox';
@@ -18,6 +18,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  horizontal: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    marginHorizontal: 5
+  },
+  vertical: {
+    marginHorizontal: 5
+  },
 });
 
 type BabProps = {
@@ -32,28 +41,24 @@ export default function Bab({ route }: BabProps) {
 
   return (
     <AppView withSafeArea withHeader={false}>
-      <View style={{ flex: 1, marginTop: heightPercentageToDP(5) }}>
+      <ScrollView>
         <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            marginHorizontal: 5
-          }}>
+          style={[data.type == 'vertical' ? styles.vertical : styles.horizontal, {margin: wp(3)}]}>
           {
             data.data?.map((item, idx) => {
               return (
-                <AppBox
-                  key={idx}
-                  title={item.title}
-                  onPress={() => MateriScreen.MATERI.navigate(navigation, {id, idx})}
-                />
+                <View key={idx} style={data.type == 'vertical' ? idx % 2 != 0 ? { alignItems: 'flex-end' } : null : null}>
+                  <AppBox
+                    key={idx}
+                    title={item.title}
+                    onPress={() => MateriScreen.MATERI.navigate(navigation, { id, idx })}
+                  />
+                </View>
               )
             })
           }
-
         </View>
-      </View>
+      </ScrollView>
     </AppView>
   );
 }

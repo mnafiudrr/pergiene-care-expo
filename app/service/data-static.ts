@@ -2,7 +2,7 @@ export const data_static = [
   {
     title: 'konsep keputihan',
     image: require('~/assets/icon.png'),
-    type: 'box',
+    type: 'horizontal',
     data: [
       {
         title: 'Definisi Keputihan',
@@ -91,7 +91,7 @@ export const data_static = [
   {
     title: 'konsep perineal hygiene',
     image: require('~/assets/icon.png'),
-    type: 'box',
+    type: 'vertical',
     data: [
       {
         title: 'Definisi perineal hygiene',

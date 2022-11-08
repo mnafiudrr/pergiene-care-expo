@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: wp(10),
+    fontSize: wp(13),
     marginBottom: heightPercentageToDP(5)
   },
   logo: {
