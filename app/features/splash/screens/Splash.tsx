@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: wp(13),
-    marginBottom: heightPercentageToDP(5)
+    fontSize: wp(11),
+    marginTop: heightPercentageToDP(5),
+    color: bgcolor.blackUltraLight
   },
   logo: {
     paddingBottom: wp(5),
@@ -62,6 +63,8 @@ export default function Splash({ navigation }: { navigation: CompositeNavigation
         'ArchitectsDaughter': require('~/assets/fonts/ArchitectsDaughter.ttf'),
         'Schoolbell': require('~/assets/fonts/Schoolbell.ttf'),
         'Staatliches-Regular': require('~/assets/fonts/Staatliches-Regular.ttf'),
+        'FredokaOne': require('~/assets/fonts/FredokaOne-Regular.ttf'),
+        'comicsansms': require('~/assets/fonts/design.graffiti.comicsansms.ttf'),
     });
     setfontsLoaded(true);
   }
@@ -71,8 +74,6 @@ export default function Splash({ navigation }: { navigation: CompositeNavigation
   },[]);
 
   useEffect(() => {
-    console.log(fontsLoaded);
-    
     setTimeout(() => {
       setSplashLoading(false);
     }, 3000);
@@ -87,12 +88,12 @@ export default function Splash({ navigation }: { navigation: CompositeNavigation
 
 
   return (
-    <View style={{ flex: 1, backgroundColor: bgcolor.yellow }}>
+    <View style={{ flex: 1, backgroundColor: bgcolor.blueSky }}>
       <View style={styles.container}>
-        <Text style={[styles.title, { fontFamily: 'Staatliches-Regular' }]}>PERGIENE CARE</Text>
         <View style={styles.withShadow}>
           <Image style={styles.logo} source={require('~/assets/icon.png')} />
         </View>
+        <Text style={[styles.title, { fontFamily: 'FredokaOne' }]}>Pergiene Care</Text>
       </View>
       <View style={styles.containerFooter}>
         <ActivityIndicator style={styles.loader} size={'large'} color={'grey'} />

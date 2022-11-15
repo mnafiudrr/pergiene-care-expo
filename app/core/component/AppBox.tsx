@@ -19,7 +19,7 @@ export default function AppBox({logo, title, imageSource, onPress}: boxProps) {
         { imageSource ? <Image source={imageSource??{}} style={styles.logo} /> : null }
         </View>
       </View>
-      <Text style={[styles.title, {fontFamily: 'ArchitectsDaughter'}]}>{ title }</Text>
+      <Text style={[styles.title, {fontFamily: 'comicsansms'}]}>{ title }</Text>
     </TouchableOpacity>
   )
 }
@@ -35,26 +35,28 @@ const styles = StyleSheet.create({
     height: 80
   },
   box: { 
-    backgroundColor: bgcolor.orange, 
+    backgroundColor: bgcolor.pink, 
     width: 110, 
     height: 110, 
     justifyContent: 'center', 
     alignItems: 'center',
     borderRadius: 15,
-    borderWidth: 2,
-    borderColor: bgcolor.blackLight
+    borderWidth: 4,
+    borderColor: bgcolor.blueSea
   },
   boxIn: { 
-    backgroundColor: bgcolor.orange, 
+    backgroundColor: bgcolor.bluePastel, 
     width: 110, 
     height: 110, 
     justifyContent: 'center', 
     alignItems: 'center',
     borderRadius: 15,
-    marginTop: 10,
-    marginRight: -120
+    marginTop: 13,
+    borderWidth: 4,
+    borderColor: bgcolor.blueSea,
+    marginRight: -110
   },
   title: {
-    fontSize: 18
+    fontSize: 28
   }
 });

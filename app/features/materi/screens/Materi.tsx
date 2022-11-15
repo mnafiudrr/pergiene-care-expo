@@ -20,25 +20,43 @@ export default function Materi({ route }: MateriProps) {
 
   const [page, setPage] = useState(0);
 
+  const [backColor, setBackColor] = useState(bgcolor.blueSea);
+
+  useEffect(() => {
+    if ( data.data.length > 0 ){
+      setBackColor( checkColor( data.data[page].bg ?? data.bg ) );
+    } else {
+      setBackColor( checkColor( data.bg ) )
+    }
+  },[page]);
+
+  const checkColor = (value: string) => {
+
+    if (value == 'red-tomato') return bgcolor.redTomato;
+    else if (value == 'blue-sky') return bgcolor.blueSky;
+    else return bgcolor.bluePastel;
+
+  }
+
   return (
-    <AppView withSafeArea style={{ backgroundColor: bgcolor.yellow }} withHeader={false}>
+    <AppView withSafeArea style={{ backgroundColor: backColor  }} withHeader={false}>
       <ScrollView showsVerticalScrollIndicator={false}>
         { data.type != 'page' ? (
           <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
-            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'ArchitectsDaughter' }}>{data.title}</Text>
-            <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'Schoolbell' }}>{data.value ?? ''}</Text>
+            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
+            <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'comicsansms' }}>{data.value ?? ''}</Text>
           </View>
         ):(
           <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
-            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'ArchitectsDaughter' }}>{data.title}</Text>
+            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
             <View style={{ paddingHorizontal: 10 }}>
-              <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'Schoolbell' }}>{data.data[page].title}</Text>
+              <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
               {
                 data.data[page].data?.map((value, index) => {
                   return (
                     <View key={index} style={{ flexDirection: 'row', marginBottom: 10 }}>
                       <View style={{ width: 7, height: 7, borderWidth: 2, marginTop: 8, marginRight: 5  }} />
-                      <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'Schoolbell' }}>{value}</Text>
+                      <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'comicsansms' }}>{value}</Text>
                     </View>
                   )
                 })

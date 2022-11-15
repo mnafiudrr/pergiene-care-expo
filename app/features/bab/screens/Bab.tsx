@@ -40,7 +40,7 @@ export default function Bab({ route }: BabProps) {
   const data = data_static[id];
 
   return (
-    <AppView withSafeArea withHeader={false}>
+    <AppView withSafeArea withHeader={false} style={{ backgroundColor: bgcolor.pink }}>
       <ScrollView>
         <View
           style={[data.type == 'vertical' ? styles.vertical : styles.horizontal, {margin: wp(3)}]}>

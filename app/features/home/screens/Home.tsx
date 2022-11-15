@@ -1,9 +1,8 @@
 import { View, Text, Alert, Button, StyleSheet, ScrollView, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import React, { useCallback, useEffect, useState } from 'react';
 import AppView from '~/app/core/component/AppView';
-import { heightPercentageToDP, widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { CompositeNavigationProp } from '@react-navigation/native';
-import ScannerScreens from '../../scanner/config/Screens';
 import { bgcolor } from '~/app/core/utils/colors';
 import { data_static } from '~/app/service/data-static';
 import AppBox from '~/app/core/component/AppBox';
@@ -22,12 +21,17 @@ const spacing = overCols / numCols;
 
 
   return (
-    <AppView style={{ backgroundColor: bgcolor.yellow }} withSafeArea>
+    <AppView style={{ backgroundColor: bgcolor.pink }} withSafeArea>
       {/* <ScrollView
         showsVerticalScrollIndicator={false}> */}
       <View style={styles.container}>
         <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
-          <Text style={{ fontFamily: 'Schoolbell', fontSize: wp(15) }}>Menu Utama</Text>
+          <Text style={{ fontFamily: 'FredokaOne', fontSize: wp(10), color: bgcolor.blackUltraLight }}>Menu Utama</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={[styles.stripes, { backgroundColor: bgcolor.yellow }]}/>
+            <View style={[styles.stripes, { backgroundColor: bgcolor.orange }]}/>
+            <View style={[styles.stripes, { backgroundColor: bgcolor.pink }]}/>
+          </View>
         </View>
         <View style={{ flex: 3 }}>
           <View 
@@ -74,5 +78,13 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     // color: 'white'
+  },
+  stripes: { 
+    borderColor: bgcolor.blueSea,
+    width: wp(14),
+    height: wp(5.5),
+    borderWidth: wp(1),
+    borderRadius: wp(5),
+    marginHorizontal: wp(1.5)
   }
 });
