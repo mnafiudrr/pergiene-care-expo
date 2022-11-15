@@ -60,9 +60,6 @@ export default function Splash({ navigation }: { navigation: CompositeNavigation
 
   const _loadFontAsync = async () => {
     await Font.loadAsync({
-        'ArchitectsDaughter': require('~/assets/fonts/ArchitectsDaughter.ttf'),
-        'Schoolbell': require('~/assets/fonts/Schoolbell.ttf'),
-        'Staatliches-Regular': require('~/assets/fonts/Staatliches-Regular.ttf'),
         'FredokaOne': require('~/assets/fonts/FredokaOne-Regular.ttf'),
         'comicsansms': require('~/assets/fonts/design.graffiti.comicsansms.ttf'),
     });

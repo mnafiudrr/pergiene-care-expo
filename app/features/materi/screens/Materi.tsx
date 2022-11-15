@@ -70,14 +70,14 @@ export default function Materi({ route }: MateriProps) {
           <View>
             <Visible visible={page > 0}>
               <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page-1)}>
-                <Text style={{ fontFamily: 'ArchitectsDaughter' }}>{`< Sebelumnya`}</Text>
+                <Text style={{ fontFamily: 'comicsansms' }}>{`< Sebelumnya`}</Text>
               </TouchableOpacity>
             </Visible>
           </View>
           <View>
             <Visible visible={page < data.data.length -1}>
               <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page+1)}>
-                <Text style={{ fontFamily: 'ArchitectsDaughter' }}>{`Selanjutnya >`}</Text>
+                <Text style={{ fontFamily: 'comicsansms' }}>{`Selanjutnya >`}</Text>
               </TouchableOpacity>
             </Visible>
           </View>
