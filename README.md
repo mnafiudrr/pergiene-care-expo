@@ -20,7 +20,7 @@ To run this project just run `npm install` or `yarn install` then `npx expo star
 
 
 ## Additional
-If you need a simple app like this, call me on [telegram](https://web.telegram.org/k/#@fuifiu) or email to `nafiu.dev@gmail.com`
+If you need a simple app like this, call me on [telegram](https://web.telegram.org/k/#@fuifiu) or email to [nafiu.dev@gmail.com](mailto:nafiu.dev@gmail.com)
 
 
 Thats it
