@@ -5,7 +5,7 @@ Pergiene Care is health care platform about Women's Perineal Hygiene
 
 
 ## Try Expo
-To try this development, this project can run using [Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US&pli=1)
+To try this development, this project can run using [Expo for Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US&pli=1) or [Expo for iOS](https://apps.apple.com/us/app/expo-go/id982107779).
 
 and just scan this QR :
 <p align="center">
