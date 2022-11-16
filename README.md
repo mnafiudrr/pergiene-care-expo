@@ -11,7 +11,7 @@ and just scan this QR :
 <p align="center">
 <img src="https://qr.expo.dev/expo-go?owner=nafiu&slug=pergiene-care&releaseChannel=default&host=exp.host" height="500" />
 </p>
-or visit [this link](https://expo.dev/@nafiu/pergiene-care).
+or visit [this link](https://expo.dev/@nafiu/pergiene-care) .
 
 
 ## Free 2 Clone
