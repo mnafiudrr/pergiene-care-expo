@@ -11,11 +11,12 @@ and just scan this QR :
 <p align="center">
 <img src="https://qr.expo.dev/expo-go?owner=nafiu&slug=pergiene-care&releaseChannel=default&host=exp.host" height="500" />
 </p>
-or visit [this link](https://expo.dev/@nafiu/pergiene-care) .
+
+or visit [this link](https://expo.dev/@nafiu/pergiene-care).
 
 
-## Free 2 Clone
-This project was free to use and free to clone, just clone, run `npm install` or `yarn install` then `npx expo start`.
+## How To
+To run this project just run `npm install` or `yarn install` then `npx expo start`.
 
 
 ## Additional
