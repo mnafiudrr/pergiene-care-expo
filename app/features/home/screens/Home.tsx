@@ -22,39 +22,41 @@ const spacing = overCols / numCols;
 
   return (
     <AppView style={{ backgroundColor: bgcolor.pink }} withSafeArea>
+      <ImageBackground source={ require('~/assets/images/bg_home.png') } style={styles.container}>
       {/* <ScrollView
         showsVerticalScrollIndicator={false}> */}
-      <View style={styles.container}>
-        <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
-          <Text style={{ fontFamily: 'FredokaOne', fontSize: wp(10), color: bgcolor.blackUltraLight }}>Menu Utama</Text>
-          <View style={{ flexDirection: 'row' }}>
-            <View style={[styles.stripes, { backgroundColor: bgcolor.yellow }]}/>
-            <View style={[styles.stripes, { backgroundColor: bgcolor.orange }]}/>
-            <View style={[styles.stripes, { backgroundColor: bgcolor.pink }]}/>
+        <View style={styles.container}>
+          <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
+            <Text style={{ fontFamily: 'FredokaOne', fontSize: wp(10), color: bgcolor.blackUltraLight }}>Menu Utama</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={[styles.stripes, { backgroundColor: bgcolor.yellow }]}/>
+              <View style={[styles.stripes, { backgroundColor: bgcolor.orange }]}/>
+              <View style={[styles.stripes, { backgroundColor: bgcolor.pink }]}/>
+            </View>
+          </View>
+          <View style={{ flex: 3 }}>
+            <View 
+            style={{ flex: 1,
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'space-around'
+            }}>
+              {
+                data_static.map((item, idx) => {
+                  return (
+                    <AppBox
+                      key={idx}
+                      onPress={() => BabScreen.BAB.navigate(navigation, {id: idx})}
+                      imageSource={item.image}
+                      title={item.title}
+                    />
+                  )
+                })
+              }
+            </View>
           </View>
         </View>
-        <View style={{ flex: 3 }}>
-          <View 
-          style={{ flex: 1,
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around'
-          }}>
-            {
-              data_static.map((item, idx) => {
-                return (
-                  <AppBox
-                    key={idx}
-                    onPress={() => BabScreen.BAB.navigate(navigation, {id: idx})}
-                    imageSource={item.image}
-                    title={item.title}
-                  />
-                )
-              })
-            }
-          </View>
-        </View>
-      </View>
+      </ImageBackground>
     </AppView>
   )
 }

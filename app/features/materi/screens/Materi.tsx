@@ -1,7 +1,7 @@
 import { CompositeNavigationProp } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image, Button, ScrollView, TouchableOpacity,
+  StyleSheet, View, ActivityIndicator, Platform, Dimensions, Text, Image, Button, ScrollView, TouchableOpacity, ImageBackground,
 } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import AppView from '~/app/core/component/AppView';
@@ -21,6 +21,7 @@ export default function Materi({ route }: MateriProps) {
   const [page, setPage] = useState(0);
 
   const [backColor, setBackColor] = useState(bgcolor.blueSea);
+  const [backImage, setBackImage] = useState(require('~/assets/images/bg_blue_sky.png'));
 
   useEffect(() => {
     if ( data.data.length > 0 ){
@@ -32,57 +33,80 @@ export default function Materi({ route }: MateriProps) {
 
   const checkColor = (value: string) => {
 
-    if (value == 'red-tomato') return bgcolor.redTomato;
-    else if (value == 'blue-sky') return bgcolor.blueSky;
-    else return bgcolor.bluePastel;
+    if (value == 'red-tomato') {
+      setBackImage(require('~/assets/images/bg_pink.png'));
+      return bgcolor.redTomato;
+    }
+    else if (value == 'blue-sky') {
+      setBackImage(require('~/assets/images/bg_blue_sky.png'));
+      return bgcolor.blueSky;
+    }
+    else {
+      setBackImage(require('~/assets/images/bg_blue_pastel.png'));
+      return bgcolor.bluePastel;
+    }
 
   }
 
   return (
     <AppView withSafeArea style={{ backgroundColor: backColor  }} withHeader={false}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        { data.type != 'page' ? (
-          <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
-            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
-            <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'comicsansms' }}>{data.value ?? ''}</Text>
-          </View>
-        ):(
-          <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
-            <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
-            <View style={{ paddingHorizontal: 10 }}>
-              <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
-              {
-                data.data[page].data?.map((value, index) => {
-                  return (
-                    <View key={index} style={{ flexDirection: 'row', marginBottom: 10 }}>
-                      <View style={{ width: 7, height: 7, borderWidth: 2, marginTop: 8, marginRight: 5  }} />
-                      <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'comicsansms' }}>{value}</Text>
-                    </View>
-                  )
-                })
-              }
+      <ImageBackground source={backImage} style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          { data.type != 'page' ? (
+            <View style={{ flex: 1 }}>
+              <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
+                <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
+                <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'comicsansms' }}>{data.value ?? ''}</Text>
+              </View>
+            </View>
+          ):(
+            <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
+              <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
+              <View style={{ paddingHorizontal: 10 }}>
+                <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
+                {
+                  data.data[page].data?.map((value, index) => {
+                    return (
+                      <View key={index} style={{ flexDirection: 'row', marginBottom: 10 }}>
+                        <View style={{ width: 7, height: 7, borderWidth: 2, marginTop: 8, marginRight: 5  }} />
+                        <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'comicsansms' }}>{value}</Text>
+                      </View>
+                    )
+                  })
+                }
+              </View>
+            </View>
+          )}
+        </ScrollView>
+        <Visible visible={data.type == 'page'}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View>
+              <Visible visible={page > 0}>
+                <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page-1)}>
+                  <Text style={{ fontFamily: 'comicsansms' }}>{`< Sebelumnya`}</Text>
+                </TouchableOpacity>
+              </Visible>
+            </View>
+            <View>
+              <Visible visible={page < data.data.length -1}>
+                <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page+1)}>
+                  <Text style={{ fontFamily: 'comicsansms' }}>{`Selanjutnya >`}</Text>
+                </TouchableOpacity>
+              </Visible>
             </View>
           </View>
-        )}
-      </ScrollView>
-      <Visible visible={data.type == 'page'}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <View>
-            <Visible visible={page > 0}>
-              <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page-1)}>
-                <Text style={{ fontFamily: 'comicsansms' }}>{`< Sebelumnya`}</Text>
-              </TouchableOpacity>
-            </Visible>
-          </View>
-          <View>
-            <Visible visible={page < data.data.length -1}>
-              <TouchableOpacity style={{ padding:25 }} onPress={() => setPage(page+1)}>
-                <Text style={{ fontFamily: 'comicsansms' }}>{`Selanjutnya >`}</Text>
-              </TouchableOpacity>
-            </Visible>
-          </View>
-        </View>
-      </Visible>
+        </Visible>
+        <Visible visible={data.type != 'page'}>
+          <Image 
+          source={ require('~/assets/images/women.png') } 
+          style={{ 
+            width: wp(17), 
+            height: wp(17), 
+            marginBottom: 15, 
+            marginLeft: 15 
+          }}/>
+        </Visible>
+      </ImageBackground>
     </AppView>
   );
 }
