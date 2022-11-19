@@ -63,7 +63,8 @@ export default function Materi({ route }: MateriProps) {
             <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
               <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
               <View style={{ paddingHorizontal: 10 }}>
-                <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
+                <Text style={{ marginBottom: heightPercentageToDP(1), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
+                <Image source={data.data[page].image} style={{ width: wp(30), height: wp(25), marginBottom: heightPercentageToDP(2), marginLeft: wp(5) }} />
                 {
                   data.data[page].data?.map((value, index) => {
                     return (

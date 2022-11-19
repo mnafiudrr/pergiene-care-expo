@@ -40,6 +40,7 @@ export const data_static = [
           {
             id: null,
             title: null,
+            image: null,
             value: 'Terdapat beragam faktor yang menjadi penyebab adanya keputihan yakni diantaranya',
             data: [],
             bg: 'blue-sky'
@@ -47,42 +48,49 @@ export const data_static = [
           {
             id: '1',
             title: null,
+            image: null,
             value: 'infeksi mikroorganisme seperti jamur, parasit ataupun virus,',
             bg: 'blue-sky'
           },
           {
             id: '2',
             title: null,
+            image: null,
             value: 'adanya gangguan keseimbangan hormone',
             bg: 'blue-sky'
           },
           {
             id: '3',
             title: null,
+            image: null,
             value: 'stress',
             bg: 'blue-sky'
           },
           {
             id: '4',
             title: null,
+            image: null,
             value: 'kelelahan yang berarti',
             bg: 'blue-sky'
           },
           {
             id: '5',
             title: null,
+            image: null,
             value: 'peradangan pada alat kelamin',
             bg: 'blue-sky'
           },
           {
             id: '6',
             title: null,
+            image: null,
             value: 'terdapat suatu benda asing pada vagina',
             bg: 'blue-sky'
           },
           {
             id: '7',
             title: null,
+            image: null,
             value: 'adanya suatu penyakit dalam organ reproduksi contohnya kanker leher rahim',
             bg: 'blue-sky'
           },
@@ -102,7 +110,7 @@ export const data_static = [
   },
   {
     title: 'konsep perineal hygiene',
-    image: require('~/assets/images/genitalia.png'),
+    image: require('~/assets/images/home-vag.png'),
     type: 'vertical',
     data: [
       {
@@ -129,6 +137,7 @@ export const data_static = [
         data: [
           {
             title: `Cara membersihkan area genitalia`,
+            image: require('~/assets/images/genitalia.png'),
             data: [
               'Tidak memasukan benda-benda asing kedalam vagina.',
               'Membersihkan organ reproduksi wanita seperti anus dan vagina dengan menggunakan air bersih dan mengalir.',
@@ -139,6 +148,7 @@ export const data_static = [
           },
           {
             title: `Penggunaan celana dalam`,
+            image: require('~/assets/images/underwear.png'),
             data: [
               'Memakai celana dalam berbahan katun 100% yang menyerap keringat dengan baik.',
               'Hindari penggunaan celana dalam yang berbahan nylon dan polyester yang menyebabkan rasa panas pada area kewanitaan sehingga daerah kewanitaan menjadi lembab. Daerah kewanitaan yang lembab akan memicu tumbuhnya bakteri dan jamur.',
@@ -149,6 +159,7 @@ export const data_static = [
           },
           {
             title: `Penggunaan cairan pembersih`,
+            image: require('~/assets/images/soaps.png'),
             data: [
               `Hindari penggunaan sabun pembersih vagina yang menyebabkan perubahan keasaman dan keseimbangan bakteri vagina.`,
               `Membersihkan vagina dapat menggunakan sabun bayi yang memiliki pH netral atau normal.`,
@@ -158,6 +169,7 @@ export const data_static = [
           },
           {
             title: `Kebersihan genitalia saat menstruasi`,
+            image: require('~/assets/images/whitening.png'),
             data: [
               `Saat menstruasi berlangsung penggantian pembalut tidak boleh lebih dari 6 jam.`,
               `Penggantian pembalut sebaiknya 3-4 jam sekali.`,
@@ -167,6 +179,7 @@ export const data_static = [
           },
           {
             title: `Cara membersihkan rambut kemaluan ( Bulu Pubis)`,
+            image: require('~/assets/images/crop-tools.png'),
             data: [
               `Cara membersihkan rambut kemaluan sebaiknya dilakukan dengan cara mencukurnya, bukan mencabutnya. Mencabut bulu kemaluan, selain bisa menyebabkan rasa nyeri, juga bisa membuat akar rambut terbuka, sehingga mikroorganisme berbahaya rentan masuk dan menyebabkan infeksi (folikulitis).`,
               `Mencukur rambut kemaluan berfungsi untuk menghindari pertumbuhan jamur dan bakteri yang menempel pada rambut kemaluan.`,
