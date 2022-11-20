@@ -169,7 +169,7 @@ export const data_static = [
           },
           {
             title: `Kebersihan genitalia saat menstruasi`,
-            image: require('~/assets/images/whitening.png'),
+            image: require('~/assets/images/mens.png'),
             data: [
               `Saat menstruasi berlangsung penggantian pembalut tidak boleh lebih dari 6 jam.`,
               `Penggantian pembalut sebaiknya 3-4 jam sekali.`,
