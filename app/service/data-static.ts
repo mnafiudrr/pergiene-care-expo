@@ -194,3 +194,5 @@ export const data_static = [
     ]
   },
 ]
+
+export const url_google_form = `https://docs.google.com/forms/d/e/1FAIpQLSe40VHMf56cf6XwmAb5akJcNda44cIZUzGauZ5XLsQJ7Vc8hA/viewform`;

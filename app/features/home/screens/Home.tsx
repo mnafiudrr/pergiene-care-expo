@@ -1,31 +1,47 @@
-import { View, Text, Alert, Button, StyleSheet, ScrollView, Image, TouchableOpacity, ImageBackground } from 'react-native';
-import React, { useCallback, useEffect, useState } from 'react';
+import { View, Text, Alert, Button, StyleSheet, ScrollView, Image, TouchableOpacity, ImageBackground, Pressable, ToastAndroid, Linking } from 'react-native';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import AppView from '~/app/core/component/AppView';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { bgcolor } from '~/app/core/utils/colors';
-import { data_static } from '~/app/service/data-static';
+import { data_static, url_google_form } from '~/app/service/data-static';
 import AppBox from '~/app/core/component/AppBox';
 import BabScreen from '~/app/features/bab/config/Screens';
-
+import { MaterialIcons } from '@expo/vector-icons';
+import * as SecureStore from 'expo-secure-store';
+import { AuthContext } from '~/app/core/config/AuthContext';
 
 export default function Home({ navigation }: { navigation: CompositeNavigationProp<any, any> }) {
-// Over size screen
-const overCols = wp(90) % 103;
 
-// Change to the number of columns in your grid
-const numCols = (wp(90) - overCols) / 103;
+  const { setUserData, setLogin } = useContext(AuthContext);
 
-// Change to the spacing for each item
-const spacing = overCols / numCols;
+  const toggleLogout = async () => {
+    await SecureStore.deleteItemAsync('name');
+    setUserData({name: ''});
+    setLogin(false);
+  }
 
+  const toggleOpenBrowser = async () => {
+    const supported = await Linking.canOpenURL(url_google_form);
+    if (supported) {
+      await Linking.openURL(url_google_form);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url_google_form}`);
+    }
+  }
 
   return (
     <AppView style={{ backgroundColor: bgcolor.pink }} withSafeArea>
       <ImageBackground source={ require('~/assets/images/bg_home.png') } style={styles.container}>
-      {/* <ScrollView
-        showsVerticalScrollIndicator={false}> */}
         <View style={styles.container}>
+          <View style={{ marginTop: 10, marginRight: 10, flexDirection: 'row', justifyContent: 'flex-end' }}>
+            <Pressable onPress={toggleOpenBrowser}>
+              <MaterialIcons name="comment" size={32} color={bgcolor.blackUltraLight} />
+            </Pressable>
+            <Pressable onPress={toggleLogout} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="logout" size={32} color={bgcolor.blackUltraLight} />
+            </Pressable>
+          </View>
           <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
             <Text style={{ fontFamily: 'FredokaOne', fontSize: wp(10), color: bgcolor.blackUltraLight }}>Pergiene Care</Text>
             <View style={{ flexDirection: 'row' }}>

@@ -8,6 +8,8 @@ import { heightPercentageToDP, widthPercentageToDP as wp } from 'react-native-re
 import * as Font from 'expo-font';
 import { SplashContext } from '~/app/core/config/SplashContext';
 import { bgcolor } from '~/app/core/utils/colors';
+import * as SecureStore from 'expo-secure-store';
+import { AuthContext } from '~/app/core/config/AuthContext';
 
 const heightScreen = Dimensions.get('screen').height;
 
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
 export default function Splash({ navigation }: { navigation: CompositeNavigationProp<any, any> }) {
 
   const { setSplashLoading } = useContext(SplashContext);
+  const { setUserData, setLogin } = useContext(AuthContext);
 
   const [fontsLoaded, setfontsLoaded] = useState(false);
 
@@ -71,10 +74,19 @@ export default function Splash({ navigation }: { navigation: CompositeNavigation
   },[]);
 
   useEffect(() => {
+    initData();
+  }, []);
+
+  const initData = async () => {
+    const data = await SecureStore.getItemAsync('name');
     setTimeout(() => {
+      if ( data ){
+        setUserData({ name: data });
+        setLogin(true);
+      }
       setSplashLoading(false);
     }, 3000);
-  }, []);
+  }
 
   if (!fontsLoaded) {
     return (

@@ -6,6 +6,8 @@ import HomeNavigation from '~/app/features/home/config/Navigation';
 import { SplashContext } from './SplashContext';
 import BabNavigation from '~/app/features/bab/config/Navigation';
 import MateriNavigation from '~/app/features/materi/config/Navigation';
+import { AuthContext } from './AuthContext';
+import AuthNavigation from '~/app/features/auth/config/Navigation';
 
 const Root = createStackNavigator();
 
@@ -17,6 +19,12 @@ function listScreen() {
   ];
 }
 
+function authScreen() {
+  return [
+    ...AuthNavigation.getNavigation(Root),
+  ]
+}
+
 function splashScreen() {
   return [
     ...SplashNavigation.getNavigation(Root),
@@ -26,18 +34,25 @@ function splashScreen() {
 function RootNavigation() {
 
   const [splashLoading, setSplashLoading] = useState(true);
+  const [userData, setUserData] = useState({name: ''});
+  const [login, setLogin] = useState(false);
 
   return (
     <SplashContext.Provider 
     value={{ splashLoading, setSplashLoading }}>
-      <Root.Navigator>
-        {
-          splashLoading ?
-            splashScreen()
-              :
-            listScreen()
-        }
-      </Root.Navigator>
+      <AuthContext.Provider value={{ userData, setUserData, login, setLogin }}>
+        <Root.Navigator>
+          {
+            splashLoading ?
+              splashScreen()
+                :
+              login ?
+                listScreen()
+                  :
+                authScreen()
+          }
+        </Root.Navigator>
+      </AuthContext.Provider>
     </SplashContext.Provider>
   );
 }
