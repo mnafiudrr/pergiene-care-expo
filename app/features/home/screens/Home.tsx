@@ -13,7 +13,7 @@ import { AuthContext } from '~/app/core/config/AuthContext';
 
 export default function Home({ navigation }: { navigation: CompositeNavigationProp<any, any> }) {
 
-  const { setUserData, setLogin } = useContext(AuthContext);
+  const { setUserData, setLogin, userData } = useContext(AuthContext);
 
   const toggleLogout = async () => {
     await SecureStore.deleteItemAsync('name');
@@ -34,13 +34,23 @@ export default function Home({ navigation }: { navigation: CompositeNavigationPr
     <AppView style={{ backgroundColor: bgcolor.pink }} withSafeArea>
       <ImageBackground source={ require('~/assets/images/bg_home.png') } style={styles.container}>
         <View style={styles.container}>
-          <View style={{ marginTop: 10, marginRight: 10, flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <Pressable onPress={toggleOpenBrowser}>
-              <MaterialIcons name="comment" size={32} color={bgcolor.blackUltraLight} />
-            </Pressable>
-            <Pressable onPress={toggleLogout} style={{ marginLeft: 15 }}>
-              <MaterialIcons name="logout" size={32} color={bgcolor.blackUltraLight} />
-            </Pressable>
+          <View style={{ marginTop: 10, marginRight: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ alignItems: 'center', marginLeft: 15, flexDirection: 'row' }}>
+              <Text style={{ fontFamily: 'FredokaOne', fontSize: 20, color: bgcolor.blackUltraLight }}>
+                Halo, 
+              </Text>
+              <Text style={{ fontFamily: 'FredokaOne', fontSize: 20, color: bgcolor.blackUltraLight }}>
+                {' '+userData.name}
+              </Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <Pressable onPress={toggleOpenBrowser}>
+                <MaterialIcons name="comment" size={30} color={bgcolor.blackUltraLight} />
+              </Pressable>
+              <Pressable onPress={toggleLogout} style={{ marginLeft: 15 }}>
+                <MaterialIcons name="logout" size={30} color={bgcolor.blackUltraLight} />
+              </Pressable>
+            </View>
           </View>
           <View style={{ flex: 2, justifyContent: 'center', alignItems:'center' }}>
             <Text style={{ fontFamily: 'FredokaOne', fontSize: wp(10), color: bgcolor.blackUltraLight }}>Pergiene Care</Text>
