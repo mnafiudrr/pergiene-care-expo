@@ -35,7 +35,7 @@ export default function Home({ navigation }: { navigation: CompositeNavigationPr
       <ImageBackground source={ require('~/assets/images/bg_home.png') } style={styles.container}>
         <View style={styles.container}>
           <View style={{ marginTop: 10, marginRight: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View style={{ alignItems: 'center', marginLeft: 15, flexDirection: 'row', flex: 1 }}>
+            <View style={{ alignItems: 'center', marginHorizontal: 15, flexDirection: 'row', flex: 1 }}>
               <Text style={{ fontFamily: 'FredokaOne', fontSize: 20, color: bgcolor.blackUltraLight }}>
                 Halo,{' '+userData.name}
               </Text>
