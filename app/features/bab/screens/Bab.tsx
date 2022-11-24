@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   vertical: {
     marginHorizontal: 5
@@ -42,8 +42,8 @@ export default function Bab({ route }: BabProps) {
 
   return (
     <AppView withSafeArea withHeader={false} style={{ backgroundColor: bgcolor.pink }}>
-      <ImageBackground source={ require('~/assets/images/bg_materis.png') } resizeMode="cover">
-        <ScrollView>
+      <ImageBackground source={ require('~/assets/images/bg_materis.png') } resizeMode="cover" style={{ flex:1 }}>
+        <View style={{ justifyContent: 'center', flex: 1 }}>
           <View
             style={[data.type == 'vertical' ? styles.vertical : styles.horizontal, {margin: wp(3)}]}>
             {
@@ -60,7 +60,7 @@ export default function Bab({ route }: BabProps) {
               })
             }
           </View>
-        </ScrollView>
+        </View>
       </ImageBackground>
     </AppView>
   );
