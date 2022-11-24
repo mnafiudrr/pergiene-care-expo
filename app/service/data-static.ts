@@ -116,7 +116,8 @@ export const data_static = [
       {
         title: 'Definisi perineal hygiene',
         image: null,
-        value: `Perineal hygiene merupakan istilah guna untuk merawat dan memelihara daerah genitalia eksterna dan perianal.`,
+        value: `Perineal hygiene adalah membersihkan daerah genitalia eksterna dan anus. Perawatan perineal dilakukan minimal 1 kali dalam sehari pada saat mandi dengan memelihara dan menjaga kebersihan organ genetalia eksterna (alat kelamin bagian luar).
+        \nBerdasarkan anatomi, Perineal merupakan area kulit yang berada diantara vagina dan anus. Perineal hygiene merupakan salah satu cara untuk menjaga Kesehatan organ reproduksi agar tetap bersih, sehat dan terhindar dari penyakit reproduksi.`,
         data: [],
         bg: 'red-tomato'
       },

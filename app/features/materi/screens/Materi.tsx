@@ -50,35 +50,35 @@ export default function Materi({ route }: MateriProps) {
 
   return (
     <AppView withSafeArea style={{ backgroundColor: backColor  }} withHeader={false}>
-      <ImageBackground source={backImage} style={{ flex: 1 }}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          { data.type != 'page' ? (
-            <View style={{ flex: 1 }}>
-              <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
-                <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
-                <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'comicsansms' }}>{data.value ?? ''}</Text>
-              </View>
+    <ImageBackground source={backImage} style={{ flex: 1 }}>
+        { data.type != 'page' ? (
+          <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, paddingHorizontal: wp(8), justifyContent: 'center' }}>
+              <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
+              <Text style={{ marginBottom: heightPercentageToDP(3), marginHorizontal: 10, fontSize: 16, fontFamily: 'comicsansms', textAlign: 'justify' }}>{data.value ?? ''}</Text>
             </View>
-          ):(
+          </View>
+        ):(
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{ flex: 1, paddingHorizontal: wp(8) }}>
               <Text style={{ marginVertical: heightPercentageToDP(3), fontSize: 25, textAlign: 'center', fontFamily: 'FredokaOne' }}>{data.title}</Text>
               <View style={{ paddingHorizontal: 10 }}>
                 <Text style={{ marginBottom: heightPercentageToDP(1), fontSize: 16, fontFamily: 'FredokaOne' }}>{page+1}. {data.data[page].title}</Text>
-                <Image source={data.data[page].image} style={{ width: wp(30), height: wp(25), marginBottom: heightPercentageToDP(2), marginLeft: wp(5) }} />
+                <Image source={data.data[page].image} style={{ width: wp(55), height: wp(45), marginVertical: heightPercentageToDP(1), marginLeft: wp(5), alignSelf: 'center' }} />
                 {
                   data.data[page].data?.map((value, index) => {
                     return (
                       <View key={index} style={{ flexDirection: 'row', marginBottom: 10 }}>
                         <View style={{ width: 7, height: 7, borderWidth: 2, marginTop: 8, marginRight: 5  }} />
-                        <Text style={{ marginBottom: heightPercentageToDP(3), fontSize: 16, fontFamily: 'comicsansms' }}>{value}</Text>
+                        <Text style={{ marginBottom: heightPercentageToDP(3), flex:1, fontSize: 16, fontFamily: 'comicsansms', textAlign: 'justify' }}>{value}</Text>
                       </View>
                     )
                   })
                 }
               </View>
             </View>
-          )}
-        </ScrollView>
+          </ScrollView>
+        )}
         <Visible visible={data.type == 'page'}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View>
