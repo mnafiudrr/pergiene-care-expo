@@ -5,6 +5,10 @@ const MateriScreen = {
     KEY: 'Materi',
     TITLE: 'Materi',
   }),
+  DAFTAR_PUSTAKA: new ScreenData<any>({
+    KEY: 'Daftar Pustaka',
+    TITLE: 'Daftar Pustaka',
+  }),
 };
 
 export default MateriScreen;

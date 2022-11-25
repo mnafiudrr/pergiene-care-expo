@@ -197,3 +197,8 @@ export const data_static = [
 ]
 
 export const url_google_form = `https://docs.google.com/forms/d/e/1FAIpQLSe40VHMf56cf6XwmAb5akJcNda44cIZUzGauZ5XLsQJ7Vc8hA/viewform`;
+
+export const sumber_pustaka = `Kusmiran, E. (2013). Kesehatan Reproduksi Remaja dan Wanita. Salemba Medika
+\nShadine, M. (2012). Penyakit Wanita. Citra Pustaka Yogyakarta
+\nPrateek, S. , AnkitaYadav, L. C. , Chaudhary, D. , Kochhar, N. , Sharma, S. , Gaur, R. , & Grover, N. (2021). Perineal Hygienic Practices in Patients of Himalayan Foothills-A Descriptive Study. J Evolution Med Dent Sci, 48, 1164. doi:10.14260/jemds/2021/0000
+\nTrilisnawati, D. , Purwoko, I. H. , Devi, M. , Nugroho, S. A. , & Toruan, T. L. (2021). Etiology, Diagnosis, and Treatment of Leukorrhea. Journal of Biomedicine and Translational Research, 5(6), 571–590. doi:10.32539/bsm.v5i6.323`
