@@ -7,7 +7,7 @@ import { bgcolor } from '~/app/core/utils/colors';
 import { data_static, url_google_form } from '~/app/service/data-static';
 import AppBox from '~/app/core/component/AppBox';
 import BabScreen from '~/app/features/bab/config/Screens';
-import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '~/app/core/config/AuthContext';
 import MateriScreen from '~/app/features/materi/config/Screens';
@@ -43,10 +43,10 @@ export default function Home({ navigation }: { navigation: CompositeNavigationPr
             </View>
             <View style={{ flexDirection: 'row' }}>
               <Pressable onPress={toggleOpenBrowser}>
-                <MaterialIcons name="comment" size={30} color={bgcolor.blackUltraLight} />
+                <MaterialCommunityIcons name="comment-text-outline" size={30} color={bgcolor.blackUltraLight} />
               </Pressable>
               <Pressable onPress={() => MateriScreen.DAFTAR_PUSTAKA.navigate(navigation)} style={{ marginLeft: 15 }}>
-                <FontAwesome5 name="question-circle" size={30} color={bgcolor.blackUltraLight} />
+                <AntDesign name="book" size={30} color={bgcolor.blackUltraLight} />
               </Pressable>
               <Pressable onPress={toggleLogout} style={{ marginLeft: 15 }}>
                 <MaterialIcons name="logout" size={30} color={bgcolor.blackUltraLight} />
