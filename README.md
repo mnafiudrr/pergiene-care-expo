@@ -3,6 +3,8 @@
 ## About
 Pergiene Care is health care platform about Women's Perineal Hygiene
 
+## Playstore
+Free install on [PlayStore](https://play.google.com/store/apps/details?id=com.nafiu.pergienecare)
 
 ## Try Expo
 To try this development, this project can run using [Expo for Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US&pli=1) or [Expo for iOS](https://apps.apple.com/us/app/expo-go/id982107779).
